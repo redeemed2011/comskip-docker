@@ -16,15 +16,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this file.  If not, see <http://www.gnu.org/licenses/>.
 #
+
 FROM ubuntu:16.04
+
 ARG DEBIAN_FRONTEND="noninteractive"
+
 ENV TERM="xterm" LANG="C.UTF-8" LC_ALL="C.UTF-8"
+
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
       autoconf \
       build-essential \
-      ffmpeg \ 
+      ffmpeg \
       git \
       libargtable2-dev \
       libavcodec-dev  \
@@ -58,5 +62,5 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/* && \
     rm -rf /var/tmp/*
-#
+
 ADD ./config/comskip.ini /root/.comskip.ini
